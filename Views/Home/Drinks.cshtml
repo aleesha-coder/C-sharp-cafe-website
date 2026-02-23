@@ -1,0 +1,32 @@
+@model List<Cafe_Website.Models.Product>
+
+@{
+    ViewData["Title"] = "Drinks Menu";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <h1 class="my-4">Drinks Menu</h1>
+    
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <a asp-action="HotDrinks" class="card drink-category">
+                <div class="card-body text-center">
+                    <i class="fas fa-mug-hot fa-4x mb-3 text-danger"></i>
+                    <h3>Hot Drinks</h3>
+                    <p>Coffee, Tea, Hot Chocolate</p>
+                </div>
+            </a>
+        </div>
+
+         <div class="col-md-6 mb-4">
+            <a asp-action="ColdDrinks" class="card drink-category">
+                <div class="card-body text-center">
+                    <i class="fas fa-glass-whiskey fa-4x mb-3 text-primary"></i>
+                    <h3>Cold Drinks</h3>
+                    <p>Iced Coffee, Smoothies, Cold Brew</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

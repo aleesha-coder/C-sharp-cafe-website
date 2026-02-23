@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Welcome to Cafe Twilight";
+     Layout = "_Layout";
+}
+
+<div class="splash-screen">
+    <div class="splash-content">
+        <img src="~/images/coffee-logo.png" alt="Cafe Delight Logo" class="logo">
+        <h1 class="splash-title">Cafe Delight</h1>
+        <p class="splash-subtitle">Serving happiness in every cup</p>
+        
+        <div class="splash-buttons">
+            <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg">
+                Login
+            </a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary btn-lg">
+                Register
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .splash-screen {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #6f4e37 0%, #3e2723 100%);
+    }
+    
+    .splash-content {
+        text-align: center;
+        color: white;
+        padding: 2rem;
+    }
+    
+    .logo {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 2rem;
+    }
+    
+    .splash-title {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+    
+    .splash-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+        opacity: 0.9;
+    }
+    
+    .splash-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+    
+    .btn-lg {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 50px;
+    }
+</style>

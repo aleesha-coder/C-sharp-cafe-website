@@ -1,0 +1,80 @@
+@model List<Cafe_Website.Models.OrderItem>
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <h1 class="my-4">Shopping Cart</h1>
+    
+    @if (Model == null || !Model.Any())
+    {
+        <div class="text-center">
+            <i class="fas fa-shopping-cart fa-5x text-muted mb-3"></i>
+            <h3>Your cart is empty</h3>
+            <p>Add some delicious items from our menu!</p>
+            <a asp-controller="Home" asp-action="Home" class="btn btn-primary">
+                Browse Menu
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>Product @item.ProductId</td>
+                                        <td>$@item.UnitPrice</td>
+                                        <td>@item.Quantity</td>
+                                        <td>$@(item.UnitPrice * item.Quantity)</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Order Summary</h5>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal:</span>
+                            <span>$@Model.Sum(i => i.UnitPrice * i.Quantity)</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Tax:</span>
+                            <span>$@(Model.Sum(i => i.UnitPrice * i.Quantity) * 0.08m)</span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between font-weight-bold">
+                            <span>Total:</span>
+                            <span>$@(Model.Sum(i => i.UnitPrice * i.Quantity) * 1.08m)</span>
+                        </div>
+                        
+                        <a asp-action="Checkout" class="btn btn-success btn-block mt-3">
+                            Proceed to Checkout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,68 @@
+@{
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Welcome to Cafe Twilight</h1>
+        <p class="lead">What would you like to order today?</p>
+    </div>
+
+     <div class="row">
+        <div class="col-md-3 mb-4">
+            <a asp-action="Drinks" class="card menu-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-coffee fa-3x mb-3"></i>
+                    <h5 class="card-title">Drinks</h5>
+                    <p class="card-text">Hot & Cold Beverages</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <a asp-action="Desserts" class="card menu-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-ice-cream fa-3x mb-3"></i>
+                    <h5 class="card-title">Desserts</h5>
+                    <p class="card-text">Sweet Treats</p>
+                </div>
+            </a>
+        </div>
+
+         <div class="col-md-3 mb-4">
+            <a asp-action="SavoryFoods" class="card menu-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-utensils fa-3x mb-3"></i>
+                    <h5 class="card-title">Savory Foods</h5>
+                    <p class="card-text">Delicious Meals</p>
+                </div>
+            </a>
+        </div>
+
+         <div class="col-md-3 mb-4">
+            <a asp-controller="Order" asp-action="Cart" class="card menu-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-shopping-cart fa-3x mb-3"></i>
+                    <h5 class="card-title">My Cart</h5>
+                    <p class="card-text">View Order</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .menu-card {
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.3s;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .menu-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+</style>
