@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Cafe_Website.Controllers
 {
-    [Route("[controller]")]
+    //[Route("[controller]")]
     public class AccountController : Controller
     {
         // simulated user data

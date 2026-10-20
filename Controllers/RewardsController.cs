@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Cafe_Website.Controllers
 {
-    [Route("[controller]")]
+    //[Route("[controller]")]
     public class RewardsController : Controller
     {
         // simulated rewards data
