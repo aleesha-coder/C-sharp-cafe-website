@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace Cafe_Website.Controllers
 {
     [Route("[controller]")]
-    public class Account : Controller
+    public class AccountController : Controller
     {
         // simulated user data
          private static List<User> _users = new List<User>
@@ -18,7 +18,7 @@ namespace Cafe_Website.Controllers
             new User { Id = 1, Email = "test@cafe.com", Password = "password123", FullName = "Test User", RewardPoints = 100 }
         };
 
-        private readonly ILogger<Account> _logger;
+        private readonly ILogger<AccountController> _logger;
 
         // login
 
@@ -74,7 +74,7 @@ namespace Cafe_Website.Controllers
 
 
 
-        public Account(ILogger<Account> logger)
+        public AccountController(ILogger<AccountController> logger)
         {
             _logger = logger;
         }
