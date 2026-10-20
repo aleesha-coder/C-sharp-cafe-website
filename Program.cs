@@ -3,6 +3,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Add session support
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -13,8 +17,11 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseSession(); // Enable session middleware
 
 app.UseAuthorization();
 
@@ -27,3 +34,5 @@ app.MapControllerRoute(
 
 
 app.Run();
+
+
